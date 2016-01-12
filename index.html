@@ -5,20 +5,15 @@
     <title></title>
 </head>
 <body ng-app="mainApp" ng-controller="control">
-{{firstname}}
 <script src="bower_components/angular/angular.min.js"></script>
 <script src="app.js"></script>
 <div ng-repeat="post in posts | orderBy:'upvotes'">
     <p>{{post.title}}-upvotes {{post.upvotes}}</p>
+
 </div>
-
-
-
-
-<button ng-click="addpost()">Post New One</button>
-<button ng-click="removepost()">Remove First Post</button>
-<div ng-repeat="post in posts">
-    <p>{{post.title}}-upvotes {{post.upvotes}}</p>
-</div>
+<form ng-submit="addpost()">
+    <input type="text" ng-model="title"></input>
+    <button type="submit">Post</button>
+</form>
 </body>
 </html>
