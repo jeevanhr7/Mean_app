@@ -9,11 +9,11 @@ mainapp.controller('control', function ($scope) {
         {title: 'post 5', upvotes: 4}
     ];
     $scope.addpost = function () {
-        $scope.upvotes=+1;
+        if (!$scope.title | $scope.title === '') {
+            return console.log('nothing Filled');
+        }
+        $scope.upvotes = +1;
         $scope.posts.push({'title': $scope.title, 'upvotes': $scope.upvotes});
         $scope.title = '';
     }
-
-
-
 });
