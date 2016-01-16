@@ -39,7 +39,7 @@ mainapp.controller('control', ['$scope', 'posts', function ($scope, posts) {
 mainapp.controller('PostsCtrl', ['$scope','$stateParams', 'posts', function ($scope,$stateParams,posts) {
        // $scope.name=posts.name;
 
-        $scope.post = posts.posts[$stateParams.id];
+        $scope.id = posts.je;
 
         $scope.addComment = function(){
             if($scope.body === '') { return; }
@@ -61,6 +61,7 @@ mainapp.controller('PostsCtrl', ['$scope','$stateParams', 'posts', function ($sc
 mainapp.factory('posts', [function () {
     var o = {posts: []};
     o.name='chethan';
+    o.je='chethan';
     return o;
 
 
