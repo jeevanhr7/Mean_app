@@ -2,12 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
-    <style> .glyphicon-thumbs-up {
-        cursor: pointer
-    } </style>
+    <title>Blog Site</title>
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .glyphicon-thumbs-up {
+            cursor: pointer
+        }
+    </style>
+
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
+
     <script src="app/app.js"></script>
 
     <script src="app/routes/home/index.js"></script>
@@ -18,7 +23,7 @@
 
     <script src="app/factories/postFactory/postFactory.js"></script>
 
-    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 <body ng-app="mainApp">
 <div class="page-header">
@@ -28,9 +33,7 @@
 <script type="text/ng-template" id="/home.html">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
-
-
-            <div ng-repeat="post in posts | orderBy:'upvotes'">
+            <div ng-repeat="post in postFactory.getPosts() | orderBy:'upvotes'">
                 <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(post)"></span>
                 <a ng-show="post.link" href="{{post.link}}">
                     {{post.title}}
@@ -64,9 +67,10 @@
 
 <script type="text/ng-template" id="/posts.html">
 
-{{id}}
+    <pre>{{postFactory.getPost(currentPostID)}}</pre>
 
-	</script>
+
+</script>
 
 
 </body>
