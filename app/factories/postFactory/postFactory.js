@@ -1,5 +1,5 @@
 /**
- * Created by ManjeshV on 17/01/16.
+ * Created by Jeevan HR on 17/01/16.
  */
 mainapp.factory('postFactory', [function () {
     var postFactory = {};
@@ -8,8 +8,8 @@ mainapp.factory('postFactory', [function () {
         link: "http://ssit.edu.in",
         upvotes: 0,
         comments: [
-            {author: 'Joe', body: 'Cool post!', upvotes: 0},
-            {author: 'Bob', body: 'Great idea but everything is wrong!', upvotes: 0}
+            {author: 'Joe', body: 'Cool post!', upvotes: 1},
+            {author: 'Bob', body: 'Great idea but everything is wrong!', upvotes: 2}
         ]
     }
     postFactory.posts = [testPostForInsert];
@@ -21,7 +21,7 @@ mainapp.factory('postFactory', [function () {
 
     postFactory.getPost = function(id){
         if (id){
-            return postFactory.posts[id]
+            return postFactory.posts[id].comments;
             //return "getPost:success"
         } else {
             alert("ID Blank")

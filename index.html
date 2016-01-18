@@ -33,13 +33,16 @@
 <script type="text/ng-template" id="/home.html">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
+            <pre>{{postFactory.getPosts()}}</pre>
             <div ng-repeat="post in postFactory.getPosts() | orderBy:'upvotes'">
                 <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(post)"></span>
                 <a ng-show="post.link" href="{{post.link}}">
                     {{post.title}}
+
                 </a>
 					<span ng-hide="post.link">
 						{{post.title}}
+
 					</span>
 					<span>
 						<a href="#/posts/{{$index}}">Comments</a>
@@ -67,7 +70,11 @@
 
 <script type="text/ng-template" id="/posts.html">
 
-    <pre>{{postFactory.getPost(currentPostID)}}</pre>
+    <div ng-repeat="post in postFactory.getPost(currentPostID)">
+       <strong>Author:</strong> {{post.author}}<br/>
+       <strong>Body:</strong> {{post.body}}<br/>
+       <strong>Upvotes:</strong> {{post.upvotes}}<br/>
+    </div>
 
 
 </script>
